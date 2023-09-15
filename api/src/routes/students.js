@@ -1,14 +1,22 @@
 const { Router } = require("express");
-const { Student, Shift } = require("../db");
+const { Student, Shift, Course, Division } = require("../db");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   try {
     const allStudents = await Student.findAll({
-      include: [{
-        model: Shift
-      }]
+      include: [
+        {
+          model: Course,
+        },
+        {
+          model: Division,
+        },
+        {
+          model: Shift,
+        },
+      ],
     });
     res.status(200).json(allStudents);
   } catch (error) {
@@ -27,6 +35,8 @@ router.post("/", async (req, res) => {
     province,
     postalcode,
     password,
+    course,
+    division,
     shift,
   } = req.body;
   try {
@@ -40,6 +50,8 @@ router.post("/", async (req, res) => {
       province &&
       postalcode &&
       password &&
+      course &&
+      division &&
       shift
     ) {
       const newStudent = await Student.create({
@@ -52,9 +64,13 @@ router.post("/", async (req, res) => {
         province,
         postalcode,
         password,
-        shift
+        course,
+        division,
+        shift,
       });
-      await newStudent.setShift(shift)
+      await newStudent.setCourse(course);
+      await newStudent.setDivision(division);
+      await newStudent.setShift(shift);
       res.status(200).json(newStudent);
     } else {
       res.status(400).json({ error: "Faltan datos" });
