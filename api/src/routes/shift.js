@@ -18,4 +18,13 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try{
+    const allShifts = await Shift.findAll();
+    res.status(200).json(allShifts)
+  } catch (error){
+    res.status(400).json({error: error.message})
+  }
+})
+
 module.exports = router;
