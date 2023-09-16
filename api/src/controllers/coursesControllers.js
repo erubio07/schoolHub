@@ -1,17 +1,13 @@
 const { Course, Division, Shift } = require("../db");
 
-const postDivision = async (name, division, shift) => {
+const postDivision = async (name) => {
   try {
-    if (!name || !division || !shift)
-      throw new Error("Todos los campos son requeridos");
-    if (name && division && shift) {
+    if (!name) throw new Error("Todos los campos son requeridos");
+    if (name) {
       const newCourse = await Course.create({
         name,
-        division,
-        shift,
       });
-      await newCourse.setDivision(division);
-      await newCourse.setShift(shift);
+
       return newCourse;
     }
   } catch (error) {
@@ -21,16 +17,7 @@ const postDivision = async (name, division, shift) => {
 
 const getDivision = async () => {
   try {
-    const allCourses = await Course.findAll({
-      include: [
-        {
-          model: Shift,
-        },
-        {
-          model: Division,
-        },
-      ],
-    });
+    const allCourses = await Course.findAll();
     return allCourses;
   } catch (error) {
     throw new Error(error.message);

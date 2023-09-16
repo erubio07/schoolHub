@@ -15,7 +15,7 @@ const fillDivision = async () => {
     });
     await division3.setShift(2);
     const division4 = await Division.create({
-      name: "C",
+      name: "D",
     });
     await division4.setShift(2);
   } catch (error) {

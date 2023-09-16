@@ -4,9 +4,9 @@ const {
 } = require("../controllers/coursesControllers");
 
 const postCoursesHandler = async (req, res) => {
-  const { name, division, shift } = req.body;
+  const { name } = req.body;
   try {
-    const newCourse = await postDivision(name, division, shift);
+    const newCourse = await postDivision(name);
     res.status(201).json(newCourse);
   } catch (error) {
     res.status(400).json({ error: error.message });
