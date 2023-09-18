@@ -562,6 +562,286 @@ const fillStudents = async () => {
         await student40.setCourse(2);
         await student40.setDivision(4);
         await student40.setShift(2);
+        const student41 = await Student.create({
+            name: "Soledad",
+            lastname: "Pastoruti",
+            dni: "32683349",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student41.setCourse(3);
+        await student41.setDivision(1);
+        await student41.setShift(1);
+        const student42 = await Student.create({
+            name: "Florencia",
+            lastname: "Rubio",
+            dni: "32683350",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student42.setCourse(3);
+        await student42.setDivision(1);
+        await student42.setShift(1);
+        const student43 = await Student.create({
+            name: "Abril",
+            lastname: "Rojas",
+            dni: "32683351",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student43.setCourse(3);
+        await student43.setDivision(1);
+        await student43.setShift(1);
+        const student44 = await Student.create({
+            name: "Javier",
+            lastname: "Ameal",
+            dni: "32683352",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student44.setCourse(3);
+        await student44.setDivision(1);
+        await student44.setShift(1);
+        const student45 = await Student.create({
+            name: "Amadeo",
+            lastname: "Yalis",
+            dni: "32683353",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student45.setCourse(3);
+        await student45.setDivision(1);
+        await student45.setShift(1);
+        const student46 = await Student.create({
+            name: "Agustin",
+            lastname: "Berazadi",
+            dni: "32683354",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student46.setCourse(3);
+        await student46.setDivision(2);
+        await student46.setShift(1);
+        const student47 = await Student.create({
+            name: "Luciana",
+            lastname: "Mole",
+            dni: "32683355",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student47.setCourse(3);
+        await student47.setDivision(2);
+        await student47.setShift(1);
+        const student48 = await Student.create({
+            name: "Rodrigo",
+            lastname: "Bueno",
+            dni: "32683356",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student48.setCourse(3);
+        await student48.setDivision(2);
+        await student48.setShift(1);
+        const student49 = await Student.create({
+            name: "Jonathan",
+            lastname: "Sass",
+            dni: "32683357",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student49.setCourse(3);
+        await student49.setDivision(2);
+        await student49.setShift(1);
+        const student50 = await Student.create({
+            name: "Osmara",
+            lastname: "Linda",
+            dni: "32683358",
+            email: "mail@gmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student50.setCourse(3);
+        await student50.setDivision(2);
+        await student50.setShift(1);
+        const student51 = await Student.create({
+            name: "Listeh",
+            lastname: "Noidea",
+            dni: "32683359",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student51.setCourse(3);
+        await student51.setDivision(3);
+        await student51.setShift(2);
+        const student52 = await Student.create({
+            name: "Noar",
+            lastname: "Dalmaso",
+            dni: "32683360",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student52.setCourse(3);
+        await student52.setDivision(3);
+        await student52.setShift(2);
+        const student53 = await Student.create({
+            name: "Damian",
+            lastname: "Cordoba",
+            dni: "32683361",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student53.setCourse(3);
+        await student53.setDivision(3);
+        await student53.setShift(2);
+        const student54 = await Student.create({
+            name: "Javier",
+            lastname: "Arteta",
+            dni: "32683362",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student54.setCourse(3);
+        await student54.setDivision(3);
+        await student54.setShift(2);
+        const student55 = await Student.create({
+            name: "Mikel",
+            lastname: "Arteta",
+            dni: "32683363",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student55.setCourse(3);
+        await student55.setDivision(3);
+        await student55.setShift(2);
+        const student56 = await Student.create({
+            name: "Jordi",
+            lastname: "Alba",
+            dni: "32683364",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student56.setCourse(3);
+        await student56.setDivision(4);
+        await student56.setShift(2);
+        const student57 = await Student.create({
+            name: "Jordana",
+            lastname: "Batalla",
+            dni: "32683365",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student57.setCourse(3);
+        await student57.setDivision(4);
+        await student57.setShift(2);
+        const student58 = await Student.create({
+            name: "Paulina",
+            lastname: "Rubio",
+            dni: "32683366",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student58.setCourse(3);
+        await student58.setDivision(4);
+        await student58.setShift(2);
+        const student59 = await Student.create({
+            name: "Ruben",
+            lastname: "Delgado",
+            dni: "32683367",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student59.setCourse(3);
+        await student59.setDivision(4);
+        await student59.setShift(2);
+        const student60 = await Student.create({
+            name: "Armando",
+            lastname: "Flores",
+            dni: "32683368",
+            email: "mailgmail.com",
+            adress: "Libertad 1020",
+            city: "Córdoba",
+            province: "Córdoba",
+            postalcode: "5009",
+            password: "123456",
+        });
+        await student60.setCourse(3);
+        await student60.setDivision(4);
+        await student60.setShift(2);
     } catch (error) {
         throw new Error(error.message);
     }
