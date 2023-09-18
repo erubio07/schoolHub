@@ -1,6 +1,7 @@
 const {
   getALlStudents,
   postStudent,
+  getStudentsByCourse
 } = require("../controllers/studentsControllers");
 
 const getStudentsHandler = async (req, res) => {
@@ -66,4 +67,14 @@ const postStudentsHandler = async (req, res) => {
   }
 };
 
-module.exports = { getStudentsHandler, postStudentsHandler };
+const getStudentsByCourseHandler = async (req, res) => {
+  const {courseId, divisionId, shiftId} = req.body;
+  try {
+    const studentsByCourse = await getStudentsByCourse(courseId, divisionId, shiftId);
+    res.status(200).json(studentsByCourse)
+  }catch (e) {
+    res.status(400).json({error:e.message})
+  }
+}
+
+module.exports = { getStudentsHandler, postStudentsHandler, getStudentsByCourseHandler };

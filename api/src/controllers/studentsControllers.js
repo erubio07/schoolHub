@@ -17,6 +17,36 @@ const getALlStudents = async () => {
   return allStudents;
 };
 
+const getStudentsByCourse = async (courseId, divisionId, shiftId) => {
+  try{
+    const studentsByCourse = await Student.findAll({
+      include: [
+        {
+          model: Course,
+          where: {
+            id: courseId
+          }
+        },
+        {
+          model: Division,
+          where: {
+            id: divisionId
+          },
+        },
+        {
+          model: Shift,
+          where: {
+            id: shiftId
+          }
+        },
+      ]
+  })
+    return studentsByCourse
+  }catch (e) {
+    throw new Error(e.message)
+  }
+}
+
 const postStudent = async (
   name,
   lastname,
@@ -79,4 +109,4 @@ const postStudent = async (
   }
 };
 
-module.exports = { getALlStudents, postStudent };
+module.exports = { getALlStudents, postStudent, getStudentsByCourse };
