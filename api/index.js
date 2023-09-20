@@ -4,6 +4,7 @@ const fillDivision = require("./src/controllers/fillDivisions");
 const fillShifts = require("./src/controllers/fillShifts");
 const fillStudents = require("./src/controllers/fillStudents");
 const fillSubject = require("./src/controllers/fillSubjects");
+const fillProfessor = require("./src/controllers/fillProfessors");
 const { conn } = require("./src/db.js");
 const port = 3001;
 
@@ -15,5 +16,6 @@ conn.sync({ force: true }).then(() => {
     fillCourses();
     fillStudents();
     fillSubject();
+    fillProfessor();
   });
 });

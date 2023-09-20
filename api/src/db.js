@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
+  },
 );
 const basename = path.basename(__filename);
 
@@ -19,7 +19,7 @@ const modelDefiners = [];
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(
     (file) =>
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
+      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js",
   )
   .forEach((file) => {
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
@@ -37,7 +37,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Student, Shift, Division, Course, Subject } = sequelize.models;
+const { Student, Shift, Division, Course, Subject, Professor, Note } =
+  sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -55,6 +56,12 @@ Course.belongsTo(Shift);
 Shift.hasMany(Course);
 Student.belongsToMany(Subject, { through: "subject_student" });
 Subject.belongsToMany(Student, { through: "subject_student" });
+Professor.belongsToMany(Subject, { through: "subject_professor" });
+Subject.belongsToMany(Professor, { through: "subject_professor" });
+Student.belongsToMany(Note, { through: "notes_students" });
+Note.belongsToMany(Student, { through: "notes_students" });
+Note.belongsToMany(Subject, { through: "subjects_note" });
+Subject.belongsToMany(Note, { through: "subjects_note" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

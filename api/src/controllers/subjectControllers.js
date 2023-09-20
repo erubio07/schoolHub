@@ -1,4 +1,4 @@
-const { Subject, Student, Course, Division, Shift } = require("../db");
+const { Subject, Student, Course, Division, Shift, Note } = require("../db");
 
 const getStudentsBySubject = async (id, courseId, divisionId, shiftId) => {
   try {
@@ -49,6 +49,11 @@ const getStudentSubjects = async (id) => {
       include: [
         {
           model: Subject,
+          include: [
+            {
+              model: Note,
+            },
+          ],
         },
       ],
     });
