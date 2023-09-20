@@ -12,7 +12,7 @@ router.use("/students", students);
 router.use("/shift", shift);
 router.use("/division", division);
 router.use("/course", course);
-router.use("/subjects/students", subjects);
+router.use("/subjects", subjects);
 router.use("/notes", notes);
 
 module.exports = router;

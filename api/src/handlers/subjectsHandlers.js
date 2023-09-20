@@ -1,8 +1,29 @@
 const {
   getStudentsBySubject,
   getStudentSubjects,
+  createSubject,
+  getSubjectByProfessor,
 } = require("../controllers/subjectControllers");
 
+const createSubjectHandler = async (req, res) => {
+  const { name, professorId } = req.body;
+  try {
+    const newSubject = await createSubject(name, professorId);
+    res.status(201).json(newSubject);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+};
+
+const getSubjectsByProfessorHandler = async (req, res) => {
+  const { professorId } = req.body;
+  try {
+    const subjects = await getSubjectByProfessor(professorId);
+    res.status(200).json(subjects);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+};
 const getStudentsBySubjectHandler = async (req, res) => {
   const { id, courseId, divisionId, shiftId } = req.body;
   try {
@@ -28,4 +49,9 @@ const getStudentSubjectsHandler = async (req, res) => {
   }
 };
 
-module.exports = { getStudentsBySubjectHandler, getStudentSubjectsHandler };
+module.exports = {
+  getStudentsBySubjectHandler,
+  getStudentSubjectsHandler,
+  createSubjectHandler,
+  getSubjectsByProfessorHandler,
+};
