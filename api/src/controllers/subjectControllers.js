@@ -40,4 +40,22 @@ const getStudentsBySubject = async (id, courseId, divisionId, shiftId) => {
   }
 };
 
-module.exports = { getStudentsBySubject };
+const getStudentSubjects = async (id) => {
+  try {
+    const student = await Student.findAll({
+      where: {
+        id: id,
+      },
+      include: [
+        {
+          model: Subject,
+        },
+      ],
+    });
+    return student;
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
+module.exports = { getStudentsBySubject, getStudentSubjects };

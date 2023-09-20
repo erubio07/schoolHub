@@ -1,4 +1,7 @@
-const { getStudentsBySubject } = require("../controllers/subjectControllers");
+const {
+  getStudentsBySubject,
+  getStudentSubjects,
+} = require("../controllers/subjectControllers");
 
 const getStudentsBySubjectHandler = async (req, res) => {
   const { id, courseId, divisionId, shiftId } = req.body;
@@ -7,7 +10,7 @@ const getStudentsBySubjectHandler = async (req, res) => {
       id,
       courseId,
       divisionId,
-      shiftId
+      shiftId,
     );
     res.status(201).json(students);
   } catch (error) {
@@ -15,4 +18,14 @@ const getStudentsBySubjectHandler = async (req, res) => {
   }
 };
 
-module.exports = { getStudentsBySubjectHandler };
+const getStudentSubjectsHandler = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const studentSubjects = await getStudentSubjects(id);
+    res.status(201).json(studentSubjects);
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+};
+
+module.exports = { getStudentsBySubjectHandler, getStudentSubjectsHandler };
