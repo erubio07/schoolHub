@@ -1,4 +1,12 @@
-const { Student, Shift, Course, Division } = require("../db");
+const {
+  Student,
+  Shift,
+  Course,
+  Division,
+  Assists,
+  Note,
+  Subject,
+} = require("../db");
 
 const getALlStudents = async () => {
   const allStudents = await Student.findAll({
@@ -18,34 +26,34 @@ const getALlStudents = async () => {
 };
 
 const getStudentsByCourse = async (courseId, divisionId, shiftId) => {
-  try{
+  try {
     const studentsByCourse = await Student.findAll({
       include: [
         {
           model: Course,
           where: {
-            id: courseId
-          }
+            id: courseId,
+          },
         },
         {
           model: Division,
           where: {
-            id: divisionId
+            id: divisionId,
           },
         },
         {
           model: Shift,
           where: {
-            id: shiftId
-          }
+            id: shiftId,
+          },
         },
-      ]
-  })
-    return studentsByCourse
-  }catch (e) {
-    throw new Error(e.message)
+      ],
+    });
+    return studentsByCourse;
+  } catch (e) {
+    throw new Error(e.message);
   }
-}
+};
 
 const postStudent = async (
   name,
@@ -59,7 +67,7 @@ const postStudent = async (
   password,
   course,
   division,
-  shift
+  shift,
 ) => {
   if (
     name &&
@@ -109,4 +117,45 @@ const postStudent = async (
   }
 };
 
-module.exports = { getALlStudents, postStudent, getStudentsByCourse };
+const getStudentInfo = async (studentId) => {
+  try {
+    if (studentId) {
+      const studentData = await Student.findByPk(studentId, {
+        include: [
+          {
+            model: Course,
+          },
+          {
+            model: Shift,
+          },
+          {
+            model: Division,
+          },
+          {
+            model: Subject,
+            include: [
+              {
+                model: Note,
+              },
+            ],
+          },
+          {
+            model: Assists,
+          },
+        ],
+      });
+      return studentData;
+    } else {
+      throw new Error("todos los campos son requeridos");
+    }
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
+module.exports = {
+  getALlStudents,
+  postStudent,
+  getStudentsByCourse,
+  getStudentInfo,
+};

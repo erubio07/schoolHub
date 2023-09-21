@@ -2,69 +2,59 @@ const { DataTypes, Sequelize } = require("sequelize");
 const bcrypt = require("bcrypt");
 
 module.exports = (sequelize) => {
-  const Student = sequelize.define(
-    "student",
+  const Preceptor = sequelize.define(
+    "preceptor",
     {
       id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
-        required: true,
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       lastname: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       dni: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-        required: true,
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       adress: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       city: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       province: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       postalcode: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        required: true,
       },
     },
     {
       timestamps: false,
     },
   );
-  Student.beforeCreate(async (student, options) => {
-    student.password = await bcrypt.hash(student.password, 10);
+  Preceptor.beforeCreate(async (preceptor, options) => {
+    preceptor.password = await bcrypt.hash(preceptor.password, 10);
   });
-  return Student;
+  return Preceptor;
 };
