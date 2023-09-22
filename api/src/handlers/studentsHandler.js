@@ -4,6 +4,7 @@ const {
   getStudentsByCourse,
   getStudentInfo,
 } = require("../controllers/studentsControllers");
+const { Student, Subject, Division, Shift, Course } = require("../db");
 
 const getStudentsHandler = async (req, res) => {
   try {
@@ -66,7 +67,7 @@ const postStudentsHandler = async (req, res) => {
         password,
         course,
         division,
-        shift,
+        shift
       );
 
       res.status(201).json(newStudent);
@@ -84,11 +85,49 @@ const getStudentsByCourseHandler = async (req, res) => {
     const studentsByCourse = await getStudentsByCourse(
       courseId,
       divisionId,
-      shiftId,
+      shiftId
     );
     res.status(200).json(studentsByCourse);
   } catch (e) {
     res.status(400).json({ error: e.message });
+  }
+};
+
+const updateStudentHandler = async (req, res) => {
+  const {
+    name,
+    lastname,
+    dni,
+    adress,
+    city,
+    province,
+    course,
+    division,
+    shift,
+    subject,
+  } = req.body;
+  const { studentId } = req.params;
+  try {
+    let studentToUpdate = await Student.findByPk(studentId);
+    let studentUpdated = await studentToUpdate.update({
+      name,
+      lastname,
+      dni,
+      adress,
+      city,
+      province,
+      course,
+      division,
+      shift,
+      subject,
+    });
+    await studentUpdated.setCourse(course);
+    await studentUpdated.setDivision(division);
+    await studentUpdated.setShift(shift);
+    await studentUpdated.addSubject(subject);
+    res.status(200).json(studentUpdated);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -97,4 +136,5 @@ module.exports = {
   postStudentsHandler,
   getStudentsByCourseHandler,
   getStudentInfoHandler,
+  updateStudentHandler,
 };

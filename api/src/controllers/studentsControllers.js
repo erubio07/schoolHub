@@ -67,7 +67,7 @@ const postStudent = async (
   password,
   course,
   division,
-  shift,
+  shift
 ) => {
   if (
     name &&

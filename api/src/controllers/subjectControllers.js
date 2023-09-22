@@ -53,28 +53,28 @@ const getStudentsBySubject = async (id, courseId, divisionId, shiftId) => {
   }
 };
 
-const getStudentSubjects = async (id) => {
-  try {
-    const student = await Student.findAll({
-      where: {
-        id: id,
-      },
-      include: [
-        {
-          model: Subject,
-          include: [
-            {
-              model: Note,
-            },
-          ],
-        },
-      ],
-    });
-    return student;
-  } catch (e) {
-    throw new Error(e.message);
-  }
-};
+// const getStudentSubjects = async (id) => {
+//   try {
+//     const student = await Student.findAll({
+//       where: {
+//         id: id,
+//       },
+//       include: [
+//         {
+//           model: Subject,
+//           include: [
+//             {
+//               model: Note,
+//             },
+//           ],
+//         },
+//       ],
+//     });
+//     return student;
+//   } catch (e) {
+//     throw new Error(e.message);
+//   }
+// }; //Posiblemente no sirve porque se cambiaria por el endpoint que recibe toda la data del estudiante
 
 const createSubject = async (name, professorId) => {
   try {
@@ -113,7 +113,7 @@ const getSubjectByProfessor = async (professorId) => {
 
 module.exports = {
   getStudentsBySubject,
-  getStudentSubjects,
+
   createSubject,
   getSubjectByProfessor,
 };

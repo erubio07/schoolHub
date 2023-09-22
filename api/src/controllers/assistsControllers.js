@@ -16,4 +16,16 @@ const createAssists = async (studentId, name) => {
   }
 };
 
-module.exports = { createAssists };
+const updateAssists = async (id, name) => {
+  try {
+    let assistToUpdate = await Assists.findByPk(id);
+    let assistsUpdated = await assistToUpdate.update({
+      name: name,
+    });
+    return assistsUpdated;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+module.exports = { createAssists, updateAssists };

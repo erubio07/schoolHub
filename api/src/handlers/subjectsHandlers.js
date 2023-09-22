@@ -1,6 +1,5 @@
 const {
   getStudentsBySubject,
-  getStudentSubjects,
   createSubject,
   getSubjectByProfessor,
 } = require("../controllers/subjectControllers");
@@ -31,7 +30,7 @@ const getStudentsBySubjectHandler = async (req, res) => {
       id,
       courseId,
       divisionId,
-      shiftId,
+      shiftId
     );
     res.status(201).json(students);
   } catch (error) {
@@ -39,19 +38,18 @@ const getStudentsBySubjectHandler = async (req, res) => {
   }
 };
 
-const getStudentSubjectsHandler = async (req, res) => {
-  const { id } = req.body;
-  try {
-    const studentSubjects = await getStudentSubjects(id);
-    res.status(201).json(studentSubjects);
-  } catch (e) {
-    res.status(400).json({ error: e.message });
-  }
-};
+// const getStudentSubjectsHandler = async (req, res) => {
+//   const { id } = req.body;
+//   try {
+//     const studentSubjects = await getStudentSubjects(id);
+//     res.status(201).json(studentSubjects);
+//   } catch (e) {
+//     res.status(400).json({ error: e.message });
+//   }
+// }; //Posiblemente no sirve porque se cambiaria por el endpoint que recibe toda la data del estudiante
 
 module.exports = {
   getStudentsBySubjectHandler,
-  getStudentSubjectsHandler,
   createSubjectHandler,
   getSubjectsByProfessorHandler,
 };
