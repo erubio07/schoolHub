@@ -1,9 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Views/Home";
-import About from "./Views/About";
-import ContacUs from "./Views/ContacUs";
-import Login from "./Views/Login";
+import Home from "./Views/Home/Home";
+import About from "./Views/About/About";
+import ContacUs from "./Views/ContacUs/ContacUs";
+import Login from "./Views/Login/Login";
 
 function App() {
   return (
