@@ -5,13 +5,13 @@ import styles from "./Navbar.module.css";
 function Navbar() {
   return (
     <div className={styles.container}>
-      <NavLink className={styles.link} to="/home">
+      <NavLink className={styles.link} to="/">
         Home
       </NavLink>
-      <NavLink className={styles.link} to="/activities">
+      <NavLink className={styles.link} to="/contact">
         Contacto
       </NavLink>
-      <NavLink className={styles.link} to="/activity">
+      <NavLink className={styles.link} to="/login">
         Autogestión
       </NavLink>
       <NavLink className={styles.link} to="/about">

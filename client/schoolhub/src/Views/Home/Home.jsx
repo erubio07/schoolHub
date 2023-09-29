@@ -7,12 +7,10 @@ import torneos from "../../Images/torneosestudiantiles.png";
 import idiomas from "../../Images/idiomas.jpg";
 import it from "../../Images/it.jpg";
 import styles from "./Home.module.css";
-import Navbar from "../../Components/NavBar/Navbar";
 
 function Home() {
   return (
     <div>
-      <Navbar />
       <div className={styles.slidercontainer}>
         <SliderComponent />
       </div>
@@ -129,7 +127,7 @@ function Home() {
             />
             <div className={styles.academicoffertext}>
               <h3 className={styles.academicoffertexth3}>
-                Educación en Tecnología (IT)
+                Educación en Tecnología.
               </h3>
               <p className={styles.academicoffertextp}>
                 Nuestros programas académicos están diseñados para preparar a
