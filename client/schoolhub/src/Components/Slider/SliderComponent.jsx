@@ -2,9 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import imagen0 from "../../Images/Imagen0.jpg";
-import imagen1 from "../../Images/Imagen1.jpg";
-import imagen2 from "../../Images/Imagen2.jpg";
+import imagen0 from "../../Images/nivelinicial.jpg";
+import imagen1 from "../../Images/nivelprimario.png";
+import imagen2 from "../../Images/nivelsecundario.jpg";
 import styles from "./SliderComponent.module.css";
 
 const SliderComponent = () => {

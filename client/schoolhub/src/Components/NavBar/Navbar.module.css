@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px; /* Ajusta el espaciado según tus necesidades */
+  }
+  
+  .link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 50px; /* Ajusta el espaciado entre los enlaces */
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: #00bcd4;
+    }
+  }
